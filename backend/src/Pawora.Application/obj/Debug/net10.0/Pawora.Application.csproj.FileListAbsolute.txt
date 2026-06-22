@@ -1,0 +1,15 @@
+D:\Pawora\backend\src\Pawora.Application\obj\Debug\net10.0\Pawora.Application.csproj.AssemblyReference.cache
+D:\Pawora\backend\src\Pawora.Application\obj\Debug\net10.0\Pawora.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Pawora\backend\src\Pawora.Application\obj\Debug\net10.0\Pawora.Application.AssemblyInfoInputs.cache
+D:\Pawora\backend\src\Pawora.Application\obj\Debug\net10.0\Pawora.Application.AssemblyInfo.cs
+D:\Pawora\backend\src\Pawora.Application\obj\Debug\net10.0\Pawora.Application.csproj.CoreCompileInputs.cache
+D:\Pawora\backend\src\Pawora.Application\bin\Debug\net10.0\Pawora.Application.deps.json
+D:\Pawora\backend\src\Pawora.Application\bin\Debug\net10.0\Pawora.Application.dll
+D:\Pawora\backend\src\Pawora.Application\bin\Debug\net10.0\Pawora.Application.pdb
+D:\Pawora\backend\src\Pawora.Application\bin\Debug\net10.0\Pawora.Core.dll
+D:\Pawora\backend\src\Pawora.Application\bin\Debug\net10.0\Pawora.Core.pdb
+D:\Pawora\backend\src\Pawora.Application\obj\Debug\net10.0\Pawora.A.7D015910.Up2Date
+D:\Pawora\backend\src\Pawora.Application\obj\Debug\net10.0\Pawora.Application.dll
+D:\Pawora\backend\src\Pawora.Application\obj\Debug\net10.0\refint\Pawora.Application.dll
+D:\Pawora\backend\src\Pawora.Application\obj\Debug\net10.0\Pawora.Application.pdb
+D:\Pawora\backend\src\Pawora.Application\obj\Debug\net10.0\ref\Pawora.Application.dll

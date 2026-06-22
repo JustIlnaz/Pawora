@@ -1,0 +1,37 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: pawora-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    image: pawora-api
+    build:
+      context: .
+      dockerfile: src/Pawora.API/Dockerfile
+    container_name: pawora-api
+    ports:
+      - "5000:8080"
+    depends_on:
+      - postgres
+    environment:
+      ConnectionStrings__DefaultConnection: ${ConnectionStrings__DefaultConnection}
+      JwtSettings__Secret: ${JwtSettings__Secret}
+      JwtSettings__Issuer: ${JwtSettings__Issuer}
+      JwtSettings__Audience: ${JwtSettings__Audience}
+      JwtSettings__AccessTokenExpirationMinutes: ${JwtSettings__AccessTokenExpirationMinutes}
+      JwtSettings__RefreshTokenExpirationDays: ${JwtSettings__RefreshTokenExpirationDays}
+
+    volumes:
+      - uploads:/app/wwwroot/uploads
+
+volumes:
+  pgdata:
+  uploads:

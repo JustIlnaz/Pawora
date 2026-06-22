@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Pawora.API/Pawora.API.csproj" />
+    <Project Path="src/Pawora.Application/Pawora.Application.csproj" />
+    <Project Path="src/Pawora.Core/Pawora.Core.csproj" />
+    <Project Path="src/Pawora.DataAccess/Pawora.DataAccess.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,11 @@
+D:\Pawora\backend\src\Pawora.Core\bin\Debug\net8.0\Pawora.Core.deps.json
+D:\Pawora\backend\src\Pawora.Core\bin\Debug\net8.0\Pawora.Core.dll
+D:\Pawora\backend\src\Pawora.Core\bin\Debug\net8.0\Pawora.Core.pdb
+D:\Pawora\backend\src\Pawora.Core\obj\Debug\net8.0\Pawora.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Pawora\backend\src\Pawora.Core\obj\Debug\net8.0\Pawora.Core.AssemblyInfoInputs.cache
+D:\Pawora\backend\src\Pawora.Core\obj\Debug\net8.0\Pawora.Core.AssemblyInfo.cs
+D:\Pawora\backend\src\Pawora.Core\obj\Debug\net8.0\Pawora.Core.csproj.CoreCompileInputs.cache
+D:\Pawora\backend\src\Pawora.Core\obj\Debug\net8.0\Pawora.Core.dll
+D:\Pawora\backend\src\Pawora.Core\obj\Debug\net8.0\refint\Pawora.Core.dll
+D:\Pawora\backend\src\Pawora.Core\obj\Debug\net8.0\Pawora.Core.pdb
+D:\Pawora\backend\src\Pawora.Core\obj\Debug\net8.0\ref\Pawora.Core.dll

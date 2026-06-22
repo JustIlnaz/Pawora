@@ -1,0 +1,17 @@
+D:\Pawora\backend\src\Pawora.DataAccess\bin\Debug\net8.0\Pawora.DataAccess.deps.json
+D:\Pawora\backend\src\Pawora.DataAccess\bin\Debug\net8.0\Pawora.DataAccess.runtimeconfig.json
+D:\Pawora\backend\src\Pawora.DataAccess\bin\Debug\net8.0\Pawora.DataAccess.dll
+D:\Pawora\backend\src\Pawora.DataAccess\bin\Debug\net8.0\Pawora.DataAccess.pdb
+D:\Pawora\backend\src\Pawora.DataAccess\bin\Debug\net8.0\Pawora.Core.dll
+D:\Pawora\backend\src\Pawora.DataAccess\bin\Debug\net8.0\Pawora.Core.pdb
+D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\Pawora.DataAccess.csproj.AssemblyReference.cache
+D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\Pawora.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\Pawora.DataAccess.AssemblyInfoInputs.cache
+D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\Pawora.DataAccess.AssemblyInfo.cs
+D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\Pawora.DataAccess.csproj.CoreCompileInputs.cache
+D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\Pawora.D.65FB9EA0.Up2Date
+D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\Pawora.DataAccess.dll
+D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\refint\Pawora.DataAccess.dll
+D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\Pawora.DataAccess.pdb
+D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\Pawora.DataAccess.genruntimeconfig.cache
+D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\ref\Pawora.DataAccess.dll
