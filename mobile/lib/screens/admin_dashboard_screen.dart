@@ -81,7 +81,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                       Text('Последние заказы', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
                       const SizedBox(height: AppSpacing.md),
                       adminProvider.allOrders.isEmpty
-                          ? const Center(child: Text('Нет последних заказов для отображения.', style: TextStyle(color: AppColors.onSurfaceVariant)))
+                          ? Center(child: Text('Нет последних заказов для отображения.', style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant)))
                           : ListView.builder(
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
@@ -117,15 +117,15 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
             children: [
               Container(
                 padding: const EdgeInsets.all(8),
-                decoration: const BoxDecoration(
-                  color: AppColors.primaryContainer,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primaryContainer,
                   shape: BoxShape.circle,
                 ),
-                child: Icon(icon, color: AppColors.onPrimaryContainer),
+                child: Icon(icon, color: Theme.of(context).colorScheme.onPrimaryContainer),
               ),
               const SizedBox(height: 8),
               Text(value, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold)),
-              Text(label, style: Theme.of(context).textTheme.labelSmall?.copyWith(color: AppColors.onSurfaceVariant)),
+              Text(label, style: Theme.of(context).textTheme.labelSmall?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant)),
             ],
           ),
         ),

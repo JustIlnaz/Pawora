@@ -20,8 +20,8 @@ class ReviewCard extends StatelessWidget {
         children: [
           CircleAvatar(
             backgroundImage: review.userAvatarUrl != null ? NetworkImage(review.userAvatarUrl!) : null,
-            backgroundColor: AppColors.surfaceContainerHighest,
-            child: review.userAvatarUrl == null ? const Icon(Icons.person, color: AppColors.onSurfaceVariant) : null,
+            backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+            child: review.userAvatarUrl == null ? Icon(Icons.person, color: Theme.of(context).colorScheme.onSurfaceVariant) : null,
           ),
           const SizedBox(width: AppSpacing.md),
           Expanded(
@@ -37,7 +37,7 @@ class ReviewCard extends StatelessWidget {
                     ),
                     Text(
                       dateString,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariant),
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
                     ),
                   ],
                 ),
@@ -55,7 +55,7 @@ class ReviewCard extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     review.comment!,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.onSurface),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onSurface),
                   ),
                 ],
               ],

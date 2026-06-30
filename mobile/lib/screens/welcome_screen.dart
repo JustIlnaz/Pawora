@@ -8,7 +8,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(AppSpacing.md),
@@ -18,16 +18,16 @@ class WelcomeScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.pets, size: 120, color: AppColors.primary),
+                    Icon(Icons.pets, size: 120, color: Theme.of(context).colorScheme.primary),
                     const SizedBox(height: AppSpacing.xl),
                     Text(
                       'PAWORA',
-                      style: Theme.of(context).textTheme.displayLarge?.copyWith(color: AppColors.primary),
+                      style: Theme.of(context).textTheme.displayLarge?.copyWith(color: Theme.of(context).colorScheme.primary),
                     ),
                     const SizedBox(height: AppSpacing.sm),
                     Text(
                       "Любимый магазин вашего питомца",
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: AppColors.onSurfaceVariant),
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
                     ),
                   ],
                 ),

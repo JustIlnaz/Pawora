@@ -27,10 +27,10 @@ class ShopCard extends StatelessWidget {
                       width: 100,
                       height: 100,
                       fit: BoxFit.cover,
-                      placeholder: (context, url) => Container(width: 100, height: 100, color: AppColors.surfaceContainerHighest),
-                      errorWidget: (context, url, error) => Container(width: 100, height: 100, color: AppColors.surfaceContainerHighest, child: const Icon(Icons.store, color: AppColors.onSurfaceVariant)),
+                      placeholder: (context, url) => Container(width: 100, height: 100, color: Theme.of(context).colorScheme.surfaceContainerHighest),
+                      errorWidget: (context, url, error) => Container(width: 100, height: 100, color: Theme.of(context).colorScheme.surfaceContainerHighest, child: Icon(Icons.store, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                     )
-                  : Container(width: 100, height: 100, color: AppColors.surfaceContainerHighest, child: const Icon(Icons.store, color: AppColors.onSurfaceVariant)),
+                  : Container(width: 100, height: 100, color: Theme.of(context).colorScheme.surfaceContainerHighest, child: Icon(Icons.store, color: Theme.of(context).colorScheme.onSurfaceVariant)),
             ),
             Expanded(
               child: Padding(
@@ -40,14 +40,14 @@ class ShopCard extends StatelessWidget {
                   children: [
                     Text(
                       shop.name,
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(color: AppColors.onSurface, fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Theme.of(context).colorScheme.onSurface, fontWeight: FontWeight.bold),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 4),
                     Text(
                       shop.address,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariant),
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -58,19 +58,19 @@ class ShopCard extends StatelessWidget {
                         const SizedBox(width: 4),
                         Text(
                           shop.rating.toStringAsFixed(1),
-                          style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurface),
+                          style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onSurface),
                         ),
                         const Spacer(),
                         if (shop.distance != null)
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                             decoration: BoxDecoration(
-                              color: AppColors.primaryContainer,
+                              color: Theme.of(context).colorScheme.primaryContainer,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
                               '${shop.distance!.toStringAsFixed(1)} км',
-                              style: Theme.of(context).textTheme.labelSmall?.copyWith(color: AppColors.onPrimaryContainer),
+                              style: Theme.of(context).textTheme.labelSmall?.copyWith(color: Theme.of(context).colorScheme.onPrimaryContainer),
                             ),
                           ),
                       ],

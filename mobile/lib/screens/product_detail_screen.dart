@@ -173,7 +173,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             children: [
               Text(
                 '${review.userName ?? 'Пользователь'}: ${review.comment ?? ''}',
-                style: const TextStyle(color: AppColors.onSurfaceVariant, fontStyle: FontStyle.italic),
+                style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, fontStyle: FontStyle.italic),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -214,10 +214,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
       return const Center(child: Padding(padding: EdgeInsets.all(16), child: CircularProgressIndicator()));
     }
     if (_reviewError != null) {
-      return Text(_reviewError!, style: const TextStyle(color: AppColors.error));
+      return Text(_reviewError!, style: TextStyle(color: Theme.of(context).colorScheme.error));
     }
     if (_reviews == null || _reviews!.isEmpty) {
-      return const Text('Пока нет отзывов. Будьте первым!', style: TextStyle(color: AppColors.onSurfaceVariant));
+      return Text('Пока нет отзывов. Будьте первым!', style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant));
     }
 
     return Column(
@@ -245,7 +245,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           Text(review.userName ?? 'Пользователь', style: const TextStyle(fontWeight: FontWeight.bold)),
                           Text(
                             DateTime.parse(review.createdAt).toLocal().toString().split(' ')[0],
-                            style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariant),
+                            style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
                           ),
                         ],
                       ),
@@ -300,7 +300,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               const Spacer(),
                               Text(
                                 DateTime.parse(review.adminReplyCreatedAt!).toLocal().toString().split(' ')[0],
-                                style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariant),
+                                style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
                               ),
                             ],
                           ],
@@ -357,10 +357,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           ? CachedNetworkImage(
                               imageUrl: ApiClient.getFullImageUrl(product.imageUrl),
                               fit: BoxFit.cover,
-                              placeholder: (context, url) => Container(color: AppColors.surfaceContainerHighest),
-                              errorWidget: (context, url, error) => Container(color: AppColors.surfaceContainerHighest, child: const Icon(Icons.image_not_supported)),
+                              placeholder: (context, url) => Container(color: Theme.of(context).colorScheme.surfaceContainerHighest),
+                              errorWidget: (context, url, error) => Container(color: Theme.of(context).colorScheme.surfaceContainerHighest, child: const Icon(Icons.image_not_supported)),
                             )
-                          : Container(color: AppColors.surfaceContainerHighest, child: const Icon(Icons.image, size: 64)),
+                          : Container(color: Theme.of(context).colorScheme.surfaceContainerHighest, child: const Icon(Icons.image, size: 64)),
                       Positioned(
                         bottom: 0,
                         left: 0,
@@ -372,8 +372,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               begin: Alignment.bottomCenter,
                               end: Alignment.topCenter,
                               colors: [
-                                AppColors.background,
-                                AppColors.background.withValues(alpha: 0.0),
+                                Theme.of(context).scaffoldBackgroundColor,
+                                Theme.of(context).scaffoldBackgroundColor.withValues(alpha: 0.0),
                               ],
                             ),
                           ),
@@ -389,7 +389,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           ? Icons.favorite
                           : Icons.favorite_border,
                       color: favoriteProvider.isFavorite(product.id)
-                          ? AppColors.primary
+                          ? Theme.of(context).colorScheme.primary
                           : null,
                     ),
                     onPressed: () => favoriteProvider.toggleFavorite(product.id),
@@ -408,14 +408,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         children: [
                           Text(
                             '${(product.discountPrice ?? product.price).toStringAsFixed(2)} ₽',
-                            style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: AppColors.primary),
+                            style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: Theme.of(context).colorScheme.primary),
                           ),
                           if (product.discountPrice != null) ...[
                             const SizedBox(width: AppSpacing.sm),
                             Text(
                               '${product.price.toStringAsFixed(2)} ₽',
                               style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                color: AppColors.onSurfaceVariant,
+                                color: Theme.of(context).colorScheme.onSurfaceVariant,
                                 decoration: TextDecoration.lineThrough,
                               ),
                             ),
@@ -446,7 +446,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               if (product.stock > 0)
                                 Text(
                                   'Осталось: ${product.stock} шт.',
-                                  style: const TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold),
+                                  style: TextStyle(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold),
                                 ),
                             ],
                           );
@@ -457,7 +457,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       const SizedBox(height: AppSpacing.sm),
                       Text(
                         product.description ?? 'Описание отсутствует.',
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.onSurfaceVariant),
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
                       ),
                       const SizedBox(height: AppSpacing.xl),
                       if (product.stock > 0) ...[
@@ -484,18 +484,18 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         Container(
                           padding: const EdgeInsets.all(AppSpacing.md),
                           decoration: BoxDecoration(
-                            color: AppColors.errorContainer.withValues(alpha: 0.15),
+                            color: Theme.of(context).colorScheme.errorContainer.withValues(alpha: 0.15),
                             borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: AppColors.errorContainer),
+                            border: Border.all(color: Theme.of(context).colorScheme.errorContainer),
                           ),
-                          child: const Row(
+                          child: Row(
                             children: [
-                              Icon(Icons.info_outline, color: AppColors.error),
+                              Icon(Icons.info_outline, color: Theme.of(context).colorScheme.error),
                               SizedBox(width: 8),
                               Text(
                                 'Товар закончился',
                                 style: TextStyle(
-                                  color: AppColors.error,
+                                  color: Theme.of(context).colorScheme.error,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -540,8 +540,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             right: 0,
             child: Container(
               padding: const EdgeInsets.all(AppSpacing.md),
-              decoration: const BoxDecoration(
-                color: AppColors.surfaceContainer,
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.surfaceContainer,
                 boxShadow: [
                   BoxShadow(color: Colors.black26, offset: Offset(0, -2), blurRadius: 4),
                 ],

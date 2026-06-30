@@ -52,7 +52,7 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
                             return Card(
                               margin: const EdgeInsets.only(bottom: AppSpacing.md),
                               child: ListTile(
-                                leading: const Icon(Icons.credit_card, color: AppColors.primary),
+                                leading: Icon(Icons.credit_card, color: Theme.of(context).colorScheme.primary),
                                 title: Text('$brand, оканчивающаяся на $last4'),
                                 subtitle: Text(card.cardHolderName),
                                 trailing: Row(
@@ -64,10 +64,10 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
                                       onChanged: (value) {
                                         if (value != null) provider.setDefaultCard(value);
                                       },
-                                      activeColor: AppColors.primary,
+                                      activeColor: Theme.of(context).colorScheme.primary,
                                     ),
                                     IconButton(
-                                      icon: const Icon(Icons.delete_outline, color: AppColors.error),
+                                      icon: Icon(Icons.delete_outline, color: Theme.of(context).colorScheme.error),
                                       onPressed: () => provider.removeCard(card.id),
                                     ),
                                   ],

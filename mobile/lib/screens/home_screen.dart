@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SliverAppBar(
               floating: true,
               automaticallyImplyLeading: false,
-              title: Text('PAWORA', style: Theme.of(context).textTheme.displayLarge?.copyWith(fontSize: 24, color: AppColors.primary)),
+              title: Text('PAWORA', style: Theme.of(context).textTheme.displayLarge?.copyWith(fontSize: 24, color: Theme.of(context).colorScheme.primary)),
             ),
             SliverToBoxAdapter(
               child: Padding(
@@ -67,15 +67,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: double.infinity,
                       padding: const EdgeInsets.all(AppSpacing.lg),
                       decoration: BoxDecoration(
-                        gradient: const LinearGradient(colors: [AppColors.primaryContainer, AppColors.primary]),
+                        gradient: LinearGradient(colors: [Theme.of(context).colorScheme.primaryContainer, Theme.of(context).colorScheme.primary]),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Специальные предложения', style: Theme.of(context).textTheme.titleLarge?.copyWith(color: AppColors.onPrimaryContainer, fontWeight: FontWeight.bold)),
+                          Text('Специальные предложения', style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Theme.of(context).colorScheme.onPrimaryContainer, fontWeight: FontWeight.bold)),
                           const SizedBox(height: 8),
-                          Text('Скидки до 50% на корма премиум-класса', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.onPrimaryContainer)),
+                          Text('Скидки до 50% на корма премиум-класса', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onPrimaryContainer)),
                         ],
                       ),
                     ),

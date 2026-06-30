@@ -112,9 +112,9 @@ class _SearchScreenState extends State<SearchScreen> {
           });
           _onSearch();
         },
-        backgroundColor: AppColors.surfaceContainerHigh,
-        selectedColor: AppColors.primaryContainer,
-        labelStyle: TextStyle(color: isSelected ? AppColors.onPrimaryContainer : AppColors.onSurface),
+        backgroundColor: Theme.of(context).colorScheme.surfaceContainerHigh,
+        selectedColor: Theme.of(context).colorScheme.primaryContainer,
+        labelStyle: TextStyle(color: isSelected ? Theme.of(context).colorScheme.onPrimaryContainer : Theme.of(context).colorScheme.onSurface),
       ),
     );
   }

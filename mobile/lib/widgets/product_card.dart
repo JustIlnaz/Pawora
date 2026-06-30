@@ -27,13 +27,13 @@ class ProductCard extends StatelessWidget {
                         imageUrl: ApiClient.getFullImageUrl(product.imageUrl),
                         fit: BoxFit.cover,
                         width: double.infinity,
-                        placeholder: (context, url) => Container(color: AppColors.surfaceContainerHighest),
-                        errorWidget: (context, url, error) => const Icon(Icons.image_not_supported, color: AppColors.onSurfaceVariant),
+                        placeholder: (context, url) => Container(color: Theme.of(context).colorScheme.surfaceContainerHighest),
+                        errorWidget: (context, url, error) => Icon(Icons.image_not_supported, color: Theme.of(context).colorScheme.onSurfaceVariant),
                       )
                     : Container(
                         width: double.infinity,
-                        color: AppColors.surfaceContainerHighest,
-                        child: const Icon(Icons.image, color: AppColors.onSurfaceVariant),
+                        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                        child: Icon(Icons.image, color: Theme.of(context).colorScheme.onSurfaceVariant),
                       ),
               ),
             ),
@@ -44,7 +44,7 @@ class ProductCard extends StatelessWidget {
                 children: [
                   Text(
                     product.name,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.onSurface),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onSurface),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -53,14 +53,14 @@ class ProductCard extends StatelessWidget {
                     children: [
                       Text(
                         '${(product.discountPrice ?? product.price).toStringAsFixed(2)} ₽',
-                        style: Theme.of(context).textTheme.labelLarge?.copyWith(color: AppColors.primary),
+                        style: Theme.of(context).textTheme.labelLarge?.copyWith(color: Theme.of(context).colorScheme.primary),
                       ),
                       if (product.discountPrice != null) ...[
                         const SizedBox(width: 4),
                         Text(
                           '${product.price.toStringAsFixed(2)} ₽',
                           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: AppColors.onSurfaceVariant,
+                            color: Theme.of(context).colorScheme.onSurfaceVariant,
                             decoration: TextDecoration.lineThrough,
                           ),
                         ),
@@ -74,7 +74,7 @@ class ProductCard extends StatelessWidget {
                       const SizedBox(width: 2),
                       Text(
                         product.rating.toStringAsFixed(1),
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariant),
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
                       ),
                     ],
                   ),

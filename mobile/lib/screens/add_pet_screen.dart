@@ -124,11 +124,11 @@ class _AddPetScreenState extends State<AddPetScreen> {
       builder: (context, child) {
         return Theme(
           data: Theme.of(context).copyWith(
-            colorScheme: const ColorScheme.dark(
-              primary: AppColors.primaryContainer,
+            colorScheme: ColorScheme.dark(
+              primary: Theme.of(context).colorScheme.primaryContainer,
               onPrimary: Colors.white,
-              surface: AppColors.surfaceContainerHigh,
-              onSurface: AppColors.onSurface,
+              surface: Theme.of(context).colorScheme.surfaceContainerHigh,
+              onSurface: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           child: child!,
@@ -191,17 +191,17 @@ class _AddPetScreenState extends State<AddPetScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppColors.surfaceContainerHigh,
+        backgroundColor: Theme.of(context).colorScheme.surfaceContainerHigh,
         title: const Text('Удалить питомца?'),
         content: const Text('Вы уверены, что хотите удалить этого питомца? Это действие необратимо.'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('Отмена', style: TextStyle(color: AppColors.onSurfaceVariant)),
+            child: Text('Отмена', style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant)),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
-            child: const Text('Удалить', style: TextStyle(color: AppColors.error)),
+            child: Text('Удалить', style: TextStyle(color: Theme.of(context).colorScheme.error)),
           ),
         ],
       ),
@@ -232,7 +232,7 @@ class _AddPetScreenState extends State<AddPetScreen> {
         actions: _existingPet != null
             ? [
                 IconButton(
-                  icon: const Icon(Icons.delete, color: AppColors.error),
+                  icon: Icon(Icons.delete, color: Theme.of(context).colorScheme.error),
                   onPressed: _confirmDelete,
                 ),
               ]
@@ -252,14 +252,14 @@ class _AddPetScreenState extends State<AddPetScreen> {
                   children: [
                     CircleAvatar(
                       radius: 60,
-                      backgroundColor: AppColors.surfaceContainerHigh,
+                      backgroundColor: Theme.of(context).colorScheme.surfaceContainerHigh,
                       backgroundImage: _imageFile != null
                           ? FileImage(File(_imageFile!.path)) as ImageProvider
                           : NetworkImage(_imageUrl),
                     ),
-                    const CircleAvatar(
+                    CircleAvatar(
                       radius: 18,
-                      backgroundColor: AppColors.primaryContainer,
+                      backgroundColor: Theme.of(context).colorScheme.primaryContainer,
                       child: Icon(Icons.camera_alt, size: 18, color: Colors.white),
                     ),
                   ],
@@ -295,16 +295,16 @@ class _AddPetScreenState extends State<AddPetScreen> {
                   final isSelected = _selectedSpecies == species;
                   final icon = _speciesIcons[species] ?? Icons.pets;
                   final name = _speciesTranslation[species] ?? species;
-                  final gradient = _speciesGradients[species] ?? [AppColors.surfaceContainer, AppColors.surfaceContainerHigh];
+                  final gradient = _speciesGradients[species] ?? [Theme.of(context).colorScheme.surfaceContainer, Theme.of(context).colorScheme.surfaceContainerHigh];
 
                   return Card(
                     color: isSelected
-                        ? AppColors.primaryContainer.withValues(alpha: 0.1)
-                        : AppColors.surfaceContainerHigh,
+                        ? Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.1)
+                        : Theme.of(context).colorScheme.surfaceContainerHigh,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                       side: BorderSide(
-                        color: isSelected ? AppColors.primary : Colors.transparent,
+                        color: isSelected ? Theme.of(context).colorScheme.primary : Colors.transparent,
                         width: 2,
                       ),
                     ),
@@ -325,7 +325,7 @@ class _AddPetScreenState extends State<AddPetScreen> {
                               gradient: LinearGradient(
                                 colors: isSelected
                                     ? gradient
-                                    : [AppColors.surfaceContainerHighest, AppColors.surfaceBright],
+                                    : [Theme.of(context).colorScheme.surfaceContainerHighest, Theme.of(context).colorScheme.surfaceBright],
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                               ),
@@ -343,14 +343,14 @@ class _AddPetScreenState extends State<AddPetScreen> {
                                     width: 20,
                                     height: 20,
                                     colorFilter: ColorFilter.mode(
-                                      isSelected ? Colors.white : AppColors.onSurfaceVariant,
+                                      isSelected ? Colors.white : Theme.of(context).colorScheme.onSurfaceVariant,
                                       BlendMode.srcIn,
                                     ),
                                   )
                                 : Icon(
                                     icon,
                                     size: 20,
-                                    color: isSelected ? Colors.white : AppColors.onSurfaceVariant,
+                                    color: isSelected ? Colors.white : Theme.of(context).colorScheme.onSurfaceVariant,
                                   ),
                           ),
                           const SizedBox(height: 6),
@@ -359,7 +359,7 @@ class _AddPetScreenState extends State<AddPetScreen> {
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                              color: isSelected ? AppColors.primary : AppColors.onSurface,
+                              color: isSelected ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onSurface,
                             ),
                           ),
                         ],

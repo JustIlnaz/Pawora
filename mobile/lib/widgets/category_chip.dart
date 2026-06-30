@@ -23,7 +23,7 @@ class CategoryChip extends StatelessWidget {
         margin: const EdgeInsets.only(right: AppSpacing.sm),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
-          color: isSelected ? AppColors.primaryContainer : AppColors.surfaceContainerHigh,
+          color: isSelected ? Theme.of(context).colorScheme.primaryContainer : Theme.of(context).colorScheme.surfaceContainerHigh,
           borderRadius: BorderRadius.circular(24),
         ),
         child: Row(
@@ -33,14 +33,14 @@ class CategoryChip extends StatelessWidget {
               Icon(
                 _getIcon(category.iconName!),
                 size: 16,
-                color: isSelected ? AppColors.onPrimaryContainer : AppColors.onSurface,
+                color: isSelected ? Theme.of(context).colorScheme.onPrimaryContainer : Theme.of(context).colorScheme.onSurface,
               ),
               const SizedBox(width: 8),
             ],
             Text(
               _getRussianCategoryName(category.name),
               style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                color: isSelected ? AppColors.onPrimaryContainer : AppColors.onSurface,
+                color: isSelected ? Theme.of(context).colorScheme.onPrimaryContainer : Theme.of(context).colorScheme.onSurface,
               ),
             ),
           ],

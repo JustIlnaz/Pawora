@@ -51,7 +51,7 @@ class _AdminProductsScreenState extends State<AdminProductsScreen> {
                 }
               }
             },
-            child: const Text('Удалить', style: TextStyle(color: AppColors.error)),
+            child: Text('Удалить', style: TextStyle(color: Theme.of(context).colorScheme.error)),
           ),
         ],
       ),
@@ -92,7 +92,7 @@ class _AdminProductsScreenState extends State<AdminProductsScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
-            child: const Text('Отмена', style: TextStyle(color: AppColors.onSurface)),
+            child: Text('Отмена', style: TextStyle(color: Theme.of(context).colorScheme.onSurface)),
           ),
           TextButton(
             onPressed: () async {
@@ -140,7 +140,7 @@ class _AdminProductsScreenState extends State<AdminProductsScreen> {
                 }
               }
             },
-            child: const Text('Сохранить', style: TextStyle(color: AppColors.primary)),
+            child: Text('Сохранить', style: TextStyle(color: Theme.of(context).colorScheme.primary)),
           ),
         ],
       ),
@@ -165,7 +165,7 @@ class _AdminProductsScreenState extends State<AdminProductsScreen> {
             return Center(
               child: Text(
                 productProvider.error!,
-                style: const TextStyle(color: AppColors.error),
+                style: TextStyle(color: Theme.of(context).colorScheme.error),
               ),
             );
           }
@@ -190,14 +190,14 @@ class _AdminProductsScreenState extends State<AdminProductsScreen> {
                     child: Container(
                       width: 50,
                       height: 50,
-                      color: AppColors.surfaceContainerHighest,
+                      color: Theme.of(context).colorScheme.surfaceContainerHighest,
                       child: product.imageUrl != null && product.imageUrl!.isNotEmpty
                           ? Image.network(
                               ApiClient.getFullImageUrl(product.imageUrl),
                               fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) => const Icon(Icons.shopping_bag, color: AppColors.onSurfaceVariant),
+                              errorBuilder: (context, error, stackTrace) => Icon(Icons.shopping_bag, color: Theme.of(context).colorScheme.onSurfaceVariant),
                             )
-                          : const Icon(Icons.shopping_bag, color: AppColors.onSurfaceVariant),
+                          : Icon(Icons.shopping_bag, color: Theme.of(context).colorScheme.onSurfaceVariant),
                     ),
                   ),
                   title: Text(
@@ -206,17 +206,17 @@ class _AdminProductsScreenState extends State<AdminProductsScreen> {
                   ),
                   subtitle: Text(
                     '${product.price.toStringAsFixed(2)} ₽ • В наличии: ${product.stock} шт.',
-                    style: const TextStyle(color: AppColors.onSurfaceVariant, fontSize: 12),
+                    style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, fontSize: 12),
                   ),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.edit, color: AppColors.primary),
+                        icon: Icon(Icons.edit, color: Theme.of(context).colorScheme.primary),
                         onPressed: () => _editProductDialog(context, product),
                       ),
                       IconButton(
-                        icon: const Icon(Icons.delete, color: AppColors.error),
+                        icon: Icon(Icons.delete, color: Theme.of(context).colorScheme.error),
                         onPressed: () => _confirmDelete(context, product.id, product.name),
                       ),
                     ],
@@ -229,8 +229,8 @@ class _AdminProductsScreenState extends State<AdminProductsScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pushNamed(context, '/admin/products/add'),
-        backgroundColor: AppColors.primary,
-        child: const Icon(Icons.add, color: AppColors.onPrimary),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        child: Icon(Icons.add, color: Theme.of(context).colorScheme.onPrimary),
       ),
     );
   }

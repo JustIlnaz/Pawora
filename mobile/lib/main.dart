@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 // Providers
@@ -13,9 +14,13 @@ import 'providers/favorite_provider.dart';
 import 'providers/admin_provider.dart';
 import 'providers/address_provider.dart';
 import 'providers/payment_provider.dart';
+import 'providers/locale_provider.dart';
 
 // Theme
 import 'theme/app_theme.dart';
+
+// Utils
+import 'utils/app_localizations.dart';
 
 // Screens
 import 'screens/splash_screen.dart';
@@ -55,6 +60,7 @@ class PaworaApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => ProductProvider()),
         ChangeNotifierProvider(create: (_) => CartProvider()),
@@ -72,38 +78,54 @@ class PaworaApp extends StatelessWidget {
           create: (_) => PaymentProvider(),
           update: (_, auth, payment) => payment!..updateUser(auth.user?.id),
         ),
+        ChangeNotifierProvider(create: (_) => LocaleProvider()),
       ],
-      child: MaterialApp(
-        navigatorKey: navigatorKey,
-        title: 'Pawora',
-        theme: AppTheme.darkTheme,
-        debugShowCheckedModeBanner: false,
-        initialRoute: '/splash',
-        routes: {
-          '/splash': (context) => const SplashScreen(),
-          '/welcome': (context) => const WelcomeScreen(),
-          '/login': (context) => const LoginScreen(),
-          '/register': (context) => const RegisterScreen(),
-          '/main': (context) => const MainScreen(),
-          '/search': (context) => const SearchScreen(),
-          '/product': (context) => const ProductDetailScreen(),
-          '/cart': (context) => const CartScreen(),
-          '/checkout': (context) => const CheckoutScreen(),
-          '/orders': (context) => const OrderHistoryScreen(),
-          '/map': (context) => const MapScreen(),
-          '/profile': (context) => const ProfileScreen(),
-          '/edit_profile': (context) => const EditProfileScreen(),
-          '/settings': (context) => const SettingsScreen(),
-          '/payment_methods': (context) => const PaymentMethodsScreen(),
-          '/help': (context) => const HelpScreen(),
-          '/add_pet': (context) => const AddPetScreen(),
-          '/admin': (context) => const AdminDashboardScreen(),
-          '/admin/products': (context) => const AdminProductsScreen(),
-          '/admin/products/add': (context) => const AddProductScreen(),
-          '/admin/orders': (context) => const AdminOrdersScreen(),
-          '/favorites': (context) => const FavoritesScreen(),
-          '/addresses': (context) => const AddressManagementScreen(),
-        },
+      child: Consumer2<ThemeProvider, LocaleProvider>(
+        builder: (context, themeProvider, localeProvider, _) => MaterialApp(
+          navigatorKey: navigatorKey,
+          title: 'Pawora',
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: themeProvider.themeMode,
+          locale: localeProvider.locale,
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [
+            Locale('ru', ''),
+            Locale('en', ''),
+          ],
+          debugShowCheckedModeBanner: false,
+          initialRoute: '/splash',
+          routes: {
+            '/splash': (context) => const SplashScreen(),
+            '/welcome': (context) => const WelcomeScreen(),
+            '/login': (context) => const LoginScreen(),
+            '/register': (context) => const RegisterScreen(),
+            '/main': (context) => const MainScreen(),
+            '/search': (context) => const SearchScreen(),
+            '/product': (context) => const ProductDetailScreen(),
+            '/cart': (context) => const CartScreen(),
+            '/checkout': (context) => const CheckoutScreen(),
+            '/orders': (context) => const OrderHistoryScreen(),
+            '/map': (context) => const MapScreen(),
+            '/profile': (context) => const ProfileScreen(),
+            '/edit_profile': (context) => const EditProfileScreen(),
+            '/settings': (context) => const SettingsScreen(),
+            '/payment_methods': (context) => const PaymentMethodsScreen(),
+            '/help': (context) => const HelpScreen(),
+            '/add_pet': (context) => const AddPetScreen(),
+            '/admin': (context) => const AdminDashboardScreen(),
+            '/admin/products': (context) => const AdminProductsScreen(),
+            '/admin/products/add': (context) => const AddProductScreen(),
+            '/admin/orders': (context) => const AdminOrdersScreen(),
+            '/favorites': (context) => const FavoritesScreen(),
+            '/addresses': (context) => const AddressManagementScreen(),
+          },
+        ),
       ),
     );
   }

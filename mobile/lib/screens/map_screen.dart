@@ -31,13 +31,13 @@ class _MapScreenState extends State<MapScreen> {
           Container(
             height: 250,
             width: double.infinity,
-            color: AppColors.surfaceContainerHigh,
-            child: const Column(
+            color: Theme.of(context).colorScheme.surfaceContainerHigh,
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.map, size: 64, color: AppColors.onSurfaceVariant),
+                Icon(Icons.map, size: 64, color: Theme.of(context).colorScheme.onSurfaceVariant),
                 SizedBox(height: 16),
-                Text('Для карты требуется API-ключ', style: TextStyle(color: AppColors.onSurfaceVariant)),
+                Text('Для карты требуется API-ключ', style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant)),
               ],
             ),
           ),

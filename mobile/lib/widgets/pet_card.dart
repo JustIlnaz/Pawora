@@ -29,11 +29,11 @@ class PetCard extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 30,
-                backgroundColor: AppColors.surfaceContainerHighest,
+                backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
                 backgroundImage: pet.imageUrl != null && pet.imageUrl!.isNotEmpty
                     ? CachedNetworkImageProvider(ApiClient.getFullImageUrl(pet.imageUrl)) as ImageProvider
                     : null,
-                child: (pet.imageUrl == null || pet.imageUrl!.isEmpty) ? const Icon(Icons.pets, color: AppColors.onSurfaceVariant, size: 30) : null,
+                child: (pet.imageUrl == null || pet.imageUrl!.isEmpty) ? Icon(Icons.pets, color: Theme.of(context).colorScheme.onSurfaceVariant, size: 30) : null,
               ),
               const SizedBox(height: 8),
               Text(
@@ -45,7 +45,7 @@ class PetCard extends StatelessWidget {
               const SizedBox(height: 4),
               Text(
                 pet.breed ?? pet.species,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariant),
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -53,7 +53,7 @@ class PetCard extends StatelessWidget {
               if (pet.birthDate != null)
                 Text(
                   _getAge(pet.birthDate!),
-                  style: Theme.of(context).textTheme.labelSmall?.copyWith(color: AppColors.primary),
+                  style: Theme.of(context).textTheme.labelSmall?.copyWith(color: Theme.of(context).colorScheme.primary),
                 ),
             ],
           ),

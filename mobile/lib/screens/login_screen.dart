@@ -66,13 +66,13 @@ class _LoginScreenState extends State<LoginScreen> {
               Center(
                 child: Text(
                   'PAWORA',
-                  style: Theme.of(context).textTheme.displayLarge?.copyWith(fontSize: 32, color: AppColors.primary),
+                  style: Theme.of(context).textTheme.displayLarge?.copyWith(fontSize: 32, color: Theme.of(context).colorScheme.primary),
                 ),
               ),
               const SizedBox(height: AppSpacing.xl),
               Text('С возвращением', style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: AppSpacing.sm),
-              Text('Войдите, чтобы продолжить', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.onSurfaceVariant)),
+              Text('Войдите, чтобы продолжить', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant)),
               const SizedBox(height: AppSpacing.xl),
               CustomTextField(
                 label: 'Эл. почта',
@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 prefixIcon: Icons.lock_outline,
                 obscureText: _obscurePassword,
                 suffixIcon: IconButton(
-                  icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility, color: AppColors.onSurfaceVariant),
+                  icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility, color: Theme.of(context).colorScheme.onSurfaceVariant),
                   onPressed: () {
                     setState(() {
                       _obscurePassword = !_obscurePassword;
@@ -98,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {},
-                  child: const Text('Забыли пароль?', style: TextStyle(color: AppColors.onSurface)),
+                  child: Text('Забыли пароль?', style: TextStyle(color: Theme.of(context).colorScheme.onSurface)),
                 ),
               ),
               const SizedBox(height: AppSpacing.lg),
@@ -111,10 +111,10 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Нет аккаунта?", style: TextStyle(color: AppColors.onSurfaceVariant)),
+                  Text("Нет аккаунта?", style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant)),
                   TextButton(
                     onPressed: () => Navigator.pushNamed(context, '/register'),
-                    child: const Text('Зарегистрироваться', style: TextStyle(color: AppColors.primary)),
+                    child: Text('Зарегистрироваться', style: TextStyle(color: Theme.of(context).colorScheme.primary)),
                   ),
                 ],
               ),

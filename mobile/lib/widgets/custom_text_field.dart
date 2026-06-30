@@ -35,11 +35,11 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyboardType,
         readOnly: readOnly,
         onTap: onTap,
-        style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: AppColors.onSurface),
+        style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Theme.of(context).colorScheme.onSurface),
         decoration: InputDecoration(
           labelText: label,
           hintText: hint,
-          prefixIcon: prefixIcon != null ? Icon(prefixIcon, color: AppColors.onSurfaceVariant) : null,
+          prefixIcon: prefixIcon != null ? Icon(prefixIcon, color: Theme.of(context).colorScheme.onSurfaceVariant) : null,
           suffixIcon: suffixIcon,
         ),
       ),

@@ -31,7 +31,7 @@ class _AddressManagementScreenState extends State<AddressManagementScreen> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: AppColors.background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -54,7 +54,7 @@ class _AddressManagementScreenState extends State<AddressManagementScreen> {
                       width: 40,
                       height: 4,
                       decoration: BoxDecoration(
-                        color: AppColors.surfaceContainerHighest,
+                        color: Theme.of(context).colorScheme.surfaceContainerHighest,
                         borderRadius: BorderRadius.circular(2),
                       ),
                     ),
@@ -73,10 +73,10 @@ class _AddressManagementScreenState extends State<AddressManagementScreen> {
                   ),
                   const SizedBox(height: AppSpacing.sm),
                   CheckboxListTile(
-                    title: const Text('Сделать основным адресом', style: TextStyle(color: AppColors.onSurface)),
+                    title: Text('Сделать основным адресом', style: TextStyle(color: Theme.of(context).colorScheme.onSurface)),
                     value: isDefaultChecked,
-                    activeColor: AppColors.primary,
-                    checkColor: AppColors.onPrimary,
+                    activeColor: Theme.of(context).colorScheme.primary,
+                    checkColor: Theme.of(context).colorScheme.onPrimary,
                     contentPadding: EdgeInsets.zero,
                     onChanged: (val) {
                       setModalState(() {
@@ -145,7 +145,7 @@ class _AddressManagementScreenState extends State<AddressManagementScreen> {
                     )
                   : RefreshIndicator(
                       onRefresh: provider.fetchAddresses,
-                      color: AppColors.primary,
+                      color: Theme.of(context).colorScheme.primary,
                       child: ListView.builder(
                         padding: const EdgeInsets.all(AppSpacing.md),
                         itemCount: provider.addresses.length,
@@ -153,11 +153,11 @@ class _AddressManagementScreenState extends State<AddressManagementScreen> {
                           final address = provider.addresses[index];
                           return Card(
                             margin: const EdgeInsets.only(bottom: AppSpacing.md),
-                            color: AppColors.surfaceContainerHigh,
+                            color: Theme.of(context).colorScheme.surfaceContainerHigh,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                               side: BorderSide(
-                                color: address.isDefault ? AppColors.primary : Colors.transparent,
+                                color: address.isDefault ? Theme.of(context).colorScheme.primary : Colors.transparent,
                                 width: 1.5,
                               ),
                             ),
@@ -172,19 +172,19 @@ class _AddressManagementScreenState extends State<AddressManagementScreen> {
                                       children: [
                                         Row(
                                           children: [
-                                            const Icon(Icons.location_on_outlined, color: AppColors.primary, size: 20),
+                                            Icon(Icons.location_on_outlined, color: Theme.of(context).colorScheme.primary, size: 20),
                                             const SizedBox(width: AppSpacing.sm),
                                             if (address.isDefault)
                                               Container(
                                                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                                                 decoration: BoxDecoration(
-                                                  color: AppColors.primaryContainer,
+                                                  color: Theme.of(context).colorScheme.primaryContainer,
                                                   borderRadius: BorderRadius.circular(4),
                                                 ),
-                                                child: const Text(
+                                                child: Text(
                                                   'Основной',
                                                   style: TextStyle(
-                                                    color: AppColors.onPrimaryContainer,
+                                                    color: Theme.of(context).colorScheme.onPrimaryContainer,
                                                     fontSize: 11,
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -205,12 +205,12 @@ class _AddressManagementScreenState extends State<AddressManagementScreen> {
                                     children: [
                                       if (!address.isDefault)
                                         IconButton(
-                                          icon: const Icon(Icons.star_border, color: AppColors.onSurfaceVariant),
+                                          icon: Icon(Icons.star_border, color: Theme.of(context).colorScheme.onSurfaceVariant),
                                           onPressed: () => provider.setDefaultAddress(address.id),
                                           tooltip: 'Сделать основным',
                                         ),
                                       IconButton(
-                                        icon: const Icon(Icons.edit_outlined, color: AppColors.onSurfaceVariant),
+                                        icon: Icon(Icons.edit_outlined, color: Theme.of(context).colorScheme.onSurfaceVariant),
                                         onPressed: () => _showAddressDialog(
                                           id: address.id,
                                           initialText: address.addressText,
@@ -218,7 +218,7 @@ class _AddressManagementScreenState extends State<AddressManagementScreen> {
                                         ),
                                       ),
                                       IconButton(
-                                        icon: const Icon(Icons.delete_outline, color: AppColors.error),
+                                        icon: Icon(Icons.delete_outline, color: Theme.of(context).colorScheme.error),
                                         onPressed: () async {
                                           final confirm = await showDialog<bool>(
                                             context: context,
@@ -228,11 +228,11 @@ class _AddressManagementScreenState extends State<AddressManagementScreen> {
                                               actions: [
                                                 TextButton(
                                                   onPressed: () => Navigator.pop(context, false),
-                                                  child: const Text('Отмена', style: TextStyle(color: AppColors.onSurface)),
+                                                  child: Text('Отмена', style: TextStyle(color: Theme.of(context).colorScheme.onSurface)),
                                                 ),
                                                 TextButton(
                                                   onPressed: () => Navigator.pop(context, true),
-                                                  child: const Text('Удалить', style: TextStyle(color: AppColors.error)),
+                                                  child: Text('Удалить', style: TextStyle(color: Theme.of(context).colorScheme.error)),
                                                 ),
                                               ],
                                             ),

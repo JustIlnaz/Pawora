@@ -40,10 +40,10 @@ class CartScreen extends StatelessWidget {
                                         width: 80,
                                         height: 80,
                                         fit: BoxFit.cover,
-                                        placeholder: (context, url) => Container(color: AppColors.surfaceContainerHighest),
+                                        placeholder: (context, url) => Container(color: Theme.of(context).colorScheme.surfaceContainerHighest),
                                         errorWidget: (context, url, error) => const Icon(Icons.image_not_supported),
                                       )
-                                    : Container(width: 80, height: 80, color: AppColors.surfaceContainerHighest, child: const Icon(Icons.image)),
+                                    : Container(width: 80, height: 80, color: Theme.of(context).colorScheme.surfaceContainerHighest, child: const Icon(Icons.image)),
                               ),
                               const SizedBox(width: AppSpacing.md),
                               Expanded(
@@ -54,7 +54,7 @@ class CartScreen extends StatelessWidget {
                                     const SizedBox(height: 4),
                                     Text(
                                       '${(item.product.discountPrice ?? item.product.price).toStringAsFixed(2)} ₽',
-                                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.primary),
+                                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.primary),
                                     ),
                                     const SizedBox(height: 8),
                                     Row(
@@ -72,7 +72,7 @@ class CartScreen extends StatelessWidget {
                                         ),
                                         const Spacer(),
                                         IconButton(
-                                          icon: const Icon(Icons.delete_outline, color: AppColors.error),
+                                          icon: Icon(Icons.delete_outline, color: Theme.of(context).colorScheme.error),
                                           onPressed: () => cartProvider.removeFromCart(item.product.id),
                                         ),
                                       ],
@@ -89,8 +89,8 @@ class CartScreen extends StatelessWidget {
                 ),
                 Container(
                   padding: const EdgeInsets.all(AppSpacing.md),
-                  decoration: const BoxDecoration(
-                    color: AppColors.surfaceContainer,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.surfaceContainer,
                     boxShadow: [BoxShadow(color: Colors.black26, offset: Offset(0, -2), blurRadius: 4)],
                   ),
                   child: SafeArea(
@@ -117,7 +117,7 @@ class CartScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text('Итого', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
-                            Text('${(cartProvider.totalAmount + cartProvider.deliveryFee).toStringAsFixed(2)} ₽', style: Theme.of(context).textTheme.titleLarge?.copyWith(color: AppColors.primary, fontWeight: FontWeight.bold)),
+                            Text('${(cartProvider.totalAmount + cartProvider.deliveryFee).toStringAsFixed(2)} ₽', style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold)),
                           ],
                         ),
                         const SizedBox(height: AppSpacing.lg),

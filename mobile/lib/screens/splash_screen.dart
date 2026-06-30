@@ -22,17 +22,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'PAWORA',
-              style: Theme.of(context).textTheme.displayLarge?.copyWith(color: AppColors.primary),
+              style: Theme.of(context).textTheme.displayLarge?.copyWith(color: Theme.of(context).colorScheme.primary),
             ),
             const SizedBox(height: AppSpacing.md),
-            const Icon(Icons.pets, size: 64, color: AppColors.primary),
+            Icon(Icons.pets, size: 64, color: Theme.of(context).colorScheme.primary),
           ],
         ),
       ),

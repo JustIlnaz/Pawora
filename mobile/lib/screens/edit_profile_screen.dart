@@ -103,10 +103,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   children: [
                     CircleAvatar(
                       radius: 50,
-                      backgroundColor: AppColors.surfaceContainerHighest,
+                      backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
                       backgroundImage: imageProvider,
                       child: imageProvider == null 
-                          ? const Icon(Icons.person, size: 50, color: AppColors.onSurfaceVariant)
+                          ? Icon(Icons.person, size: 50, color: Theme.of(context).colorScheme.onSurfaceVariant)
                           : null,
                     ),
                     Positioned(
@@ -114,11 +114,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       right: 0,
                       child: Container(
                         padding: const EdgeInsets.all(4),
-                        decoration: const BoxDecoration(
-                          color: AppColors.primary,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(Icons.camera_alt, size: 20, color: AppColors.onPrimary),
+                        child: Icon(Icons.camera_alt, size: 20, color: Theme.of(context).colorScheme.onPrimary),
                       ),
                     ),
                   ],

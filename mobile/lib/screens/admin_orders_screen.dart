@@ -94,13 +94,13 @@ class _AdminOrdersScreenState extends State<AdminOrdersScreen> {
                                       const SizedBox(height: 8),
                                       Text(
                                         'Дата: ${DateFormat('dd.MM.yyyy HH:mm').format(DateTime.parse(order.createdAt).toLocal())}',
-                                        style: const TextStyle(color: AppColors.onSurfaceVariant, fontSize: 12),
+                                        style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, fontSize: 12),
                                       ),
                                       if (order.address != null) ...[
                                         const SizedBox(height: 4),
                                         Text(
                                           'Адрес: ${order.address}',
-                                          style: const TextStyle(color: AppColors.onSurfaceVariant, fontSize: 12),
+                                          style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, fontSize: 12),
                                         ),
                                       ],
                                       const Divider(height: AppSpacing.lg),
@@ -132,10 +132,10 @@ class _AdminOrdersScreenState extends State<AdminOrdersScreen> {
                                           // Dropdown to update status
                                           DropdownButton<String>(
                                             value: order.status,
-                                            dropdownColor: AppColors.surfaceContainerHigh,
+                                            dropdownColor: Theme.of(context).colorScheme.surfaceContainerHigh,
                                             underline: const SizedBox(),
-                                            style: const TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 13),
-                                            icon: const Icon(Icons.arrow_drop_down, color: AppColors.primary),
+                                            style: TextStyle(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold, fontSize: 13),
+                                            icon: Icon(Icons.arrow_drop_down, color: Theme.of(context).colorScheme.primary),
                                             items: const [
                                               DropdownMenuItem(value: 'New', child: Text('Новый')),
                                               DropdownMenuItem(value: 'InProgress', child: Text('В обработке')),
@@ -174,9 +174,9 @@ class _AdminOrdersScreenState extends State<AdminOrdersScreen> {
             _selectedFilter = label;
           });
         },
-        backgroundColor: AppColors.surfaceContainerHigh,
-        selectedColor: AppColors.primaryContainer,
-        labelStyle: TextStyle(color: isSelected ? AppColors.onPrimaryContainer : AppColors.onSurface),
+        backgroundColor: Theme.of(context).colorScheme.surfaceContainerHigh,
+        selectedColor: Theme.of(context).colorScheme.primaryContainer,
+        labelStyle: TextStyle(color: isSelected ? Theme.of(context).colorScheme.onPrimaryContainer : Theme.of(context).colorScheme.onSurface),
       ),
     );
   }

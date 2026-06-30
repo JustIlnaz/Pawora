@@ -87,11 +87,11 @@ class _OrderCardState extends State<OrderCard> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
-            child: const Text('Нет', style: TextStyle(color: AppColors.onSurface)),
+            child: Text('Нет', style: TextStyle(color: Theme.of(context).colorScheme.onSurface)),
           ),
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: const Text('Да, отменить', style: TextStyle(color: AppColors.error)),
+            child: Text('Да, отменить', style: TextStyle(color: Theme.of(context).colorScheme.error)),
           ),
         ],
       ),
@@ -147,7 +147,7 @@ class _OrderCardState extends State<OrderCard> {
                 ],
               ),
               const SizedBox(height: 8),
-              Text(dateString, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppColors.onSurfaceVariant)),
+              Text(dateString, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant)),
               const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -158,7 +158,7 @@ class _OrderCardState extends State<OrderCard> {
                   ),
                   Text(
                     '${widget.order.totalAmount.toStringAsFixed(2)} ₽',
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(color: AppColors.primary, fontWeight: FontWeight.bold),
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -171,12 +171,12 @@ class _OrderCardState extends State<OrderCard> {
                   children: [
                     Row(
                       children: [
-                        const Icon(Icons.timer_outlined, size: 16, color: AppColors.primary),
+                        Icon(Icons.timer_outlined, size: 16, color: Theme.of(context).colorScheme.primary),
                         const SizedBox(width: 4),
                         Text(
                           'Отмена доступна: ${_secondsRemaining ~/ 60}:${(_secondsRemaining % 60).toString().padLeft(2, '0')}',
-                          style: const TextStyle(
-                            color: AppColors.primary,
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
                           ),
@@ -185,8 +185,8 @@ class _OrderCardState extends State<OrderCard> {
                     ),
                     TextButton.icon(
                       onPressed: _cancelOrder,
-                      icon: const Icon(Icons.cancel_outlined, size: 16, color: AppColors.error),
-                      label: const Text('Отменить', style: TextStyle(color: AppColors.error)),
+                      icon: Icon(Icons.cancel_outlined, size: 16, color: Theme.of(context).colorScheme.error),
+                      label: Text('Отменить', style: TextStyle(color: Theme.of(context).colorScheme.error)),
                       style: TextButton.styleFrom(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                         minimumSize: Size.zero,
@@ -225,8 +225,8 @@ class _OrderCardState extends State<OrderCard> {
         statusRu = 'Отменен';
         break;
       default:
-        bgColor = AppColors.surfaceContainerHighest;
-        textColor = AppColors.onSurface;
+        bgColor = Theme.of(context).colorScheme.surfaceContainerHighest;
+        textColor = Theme.of(context).colorScheme.onSurface;
         statusRu = status;
     }
     return Container(

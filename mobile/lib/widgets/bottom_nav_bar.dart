@@ -31,7 +31,7 @@ class CustomBottomNavBar extends StatelessWidget {
                       top: -6,
                       child: Container(
                         padding: const EdgeInsets.all(4),
-                        decoration: const BoxDecoration(color: AppColors.primaryContainer, shape: BoxShape.circle),
+                        decoration: BoxDecoration(color: Theme.of(context).colorScheme.primaryContainer, shape: BoxShape.circle),
                         child: Text(
                           '${cart.itemCount}',
                           style: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),

@@ -70,7 +70,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('Отмена', style: TextStyle(color: AppColors.onSurface)),
+              child: Text('Отмена', style: TextStyle(color: Theme.of(context).colorScheme.onSurface)),
             ),
             TextButton(
               onPressed: () async {
@@ -98,7 +98,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   }
                 }
               },
-              child: const Text('Добавить', style: TextStyle(color: AppColors.primary)),
+              child: Text('Добавить', style: TextStyle(color: Theme.of(context).colorScheme.primary)),
             ),
           ],
         );
@@ -183,7 +183,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const Text('Сохраненных адресов не найдено. Пожалуйста, введите адрес вручную:', style: TextStyle(color: AppColors.onSurfaceVariant)),
+                  Text('Сохраненных адресов не найдено. Пожалуйста, введите адрес вручную:', style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant)),
                   const SizedBox(height: AppSpacing.sm),
                   CustomTextField(
                     label: 'Адрес',
@@ -194,17 +194,17 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               )
             else
               Card(
-                color: AppColors.surfaceContainerHigh,
+                color: Theme.of(context).colorScheme.surfaceContainerHigh,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
                   child: Column(
                     children: [
                       ...addressProvider.addresses.map((address) => RadioListTile<String>(
                             title: Text(address.addressText),
-                            subtitle: address.isDefault ? const Text('Основной адрес', style: TextStyle(color: AppColors.primary, fontSize: 12)) : null,
+                            subtitle: address.isDefault ? Text('Основной адрес', style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 12)) : null,
                             value: address.id,
                             groupValue: _selectedAddressId,
-                            activeColor: AppColors.primary,
+                            activeColor: Theme.of(context).colorScheme.primary,
                             onChanged: (value) {
                               setState(() {
                                 _selectedAddressId = value;
@@ -213,8 +213,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           )),
                       const Divider(),
                       ListTile(
-                        leading: const Icon(Icons.add, color: AppColors.primary),
-                        title: const Text('Добавить новый адрес', style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.w500)),
+                        leading: Icon(Icons.add, color: Theme.of(context).colorScheme.primary),
+                        title: Text('Добавить новый адрес', style: TextStyle(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.w500)),
                         onTap: _showAddAddressDialog,
                       ),
                     ],
@@ -223,7 +223,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               ),
             const SizedBox(height: AppSpacing.lg),
             Text('Способ оплаты', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
-            const SizedBox(height: AppSpacing.md),
+            SizedBox(height: AppSpacing.md),
             Consumer<PaymentProvider>(
               builder: (context, paymentProvider, child) {
                 return Card(
@@ -244,13 +244,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           subtitle: Text(card.cardHolderName),
                           value: card.id,
                           groupValue: _paymentMethod,
-                          activeColor: AppColors.primary,
+                          activeColor: Theme.of(context).colorScheme.primary,
                           onChanged: (value) => setState(() => _paymentMethod = value!),
                         );
                       }),
                       ListTile(
-                        leading: const Icon(Icons.add, color: AppColors.primary),
-                        title: const Text('Добавить новую карту', style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.w500)),
+                        leading: Icon(Icons.add, color: Theme.of(context).colorScheme.primary),
+                        title: Text('Добавить новую карту', style: TextStyle(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.w500)),
                         onTap: () {
                           Navigator.push(
                             context,
@@ -271,7 +271,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         title: const Text('Оплата при получении'),
                         value: 'cash',
                         groupValue: _paymentMethod,
-                        activeColor: AppColors.primary,
+                        activeColor: Theme.of(context).colorScheme.primary,
                         onChanged: (value) => setState(() => _paymentMethod = value!),
                       ),
                     ],
@@ -318,7 +318,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       children: [
                         Text('Итого', style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
                         const Spacer(),
-                        Text('${(cartProvider.totalAmount + cartProvider.deliveryFee).toStringAsFixed(2)} ₽', style: Theme.of(context).textTheme.titleMedium?.copyWith(color: AppColors.primary, fontWeight: FontWeight.bold)),
+                        Text('${(cartProvider.totalAmount + cartProvider.deliveryFee).toStringAsFixed(2)} ₽', style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold)),
                       ],
                     ),
                   ],

@@ -166,7 +166,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
         Text(
           label,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: AppColors.onSurfaceVariant,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
                 fontWeight: FontWeight.w500,
               ),
         ),
@@ -177,29 +177,29 @@ class _AddProductScreenState extends State<AddProductScreen> {
           child: Ink(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             decoration: BoxDecoration(
-              color: AppColors.surfaceContainerHigh,
+              color: Theme.of(context).colorScheme.surfaceContainerHigh,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: AppColors.outlineVariant),
+              border: Border.all(color: Theme.of(context).colorScheme.outlineVariant),
             ),
             child: Row(
               children: [
                 Icon(
                   selectedValue != null ? (selectedIcon ?? defaultIcon) : defaultIcon,
-                  color: selectedValue != null ? AppColors.primary : AppColors.onSurfaceVariant,
+                  color: selectedValue != null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Text(
                     selectedValue != null ? displayText! : hint,
                     style: TextStyle(
-                      color: selectedValue != null ? AppColors.onSurface : AppColors.onSurfaceVariant,
+                      color: selectedValue != null ? Theme.of(context).colorScheme.onSurface : Theme.of(context).colorScheme.onSurfaceVariant,
                       fontSize: 16,
                     ),
                   ),
                 ),
-                const Icon(
+                Icon(
                   Icons.keyboard_arrow_down,
-                  color: AppColors.onSurfaceVariant,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ],
             ),
@@ -212,7 +212,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
   void _showCategorySelector(BuildContext context, ProductProvider productProvider) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: AppColors.surfaceContainerLow,
+      backgroundColor: Theme.of(context).colorScheme.surfaceContainerLow,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
@@ -226,7 +226,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 width: 36,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: AppColors.outlineVariant,
+                  color: Theme.of(context).colorScheme.outlineVariant,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -249,12 +249,12 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       leading: Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: isSelected ? AppColors.primaryContainer : AppColors.surfaceContainerHigh,
+                          color: isSelected ? Theme.of(context).colorScheme.primaryContainer : Theme.of(context).colorScheme.surfaceContainerHigh,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Icon(
                           _getCategoryIcon(cat.iconName),
-                          color: isSelected ? AppColors.onPrimaryContainer : AppColors.onSurfaceVariant,
+                          color: isSelected ? Theme.of(context).colorScheme.onPrimaryContainer : Theme.of(context).colorScheme.onSurfaceVariant,
                           size: 20,
                         ),
                       ),
@@ -262,11 +262,11 @@ class _AddProductScreenState extends State<AddProductScreen> {
                         _getRussianCategoryName(cat.name),
                         style: TextStyle(
                           fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                          color: isSelected ? AppColors.primary : AppColors.onSurface,
+                          color: isSelected ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                       trailing: isSelected
-                          ? const Icon(Icons.check_circle, color: AppColors.primary)
+                          ? Icon(Icons.check_circle, color: Theme.of(context).colorScheme.primary)
                           : null,
                       onTap: () {
                         setState(() {
@@ -289,7 +289,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
   void _showShopSelector(BuildContext context, ShopProvider shopProvider) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: AppColors.surfaceContainerLow,
+      backgroundColor: Theme.of(context).colorScheme.surfaceContainerLow,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
@@ -303,7 +303,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 width: 36,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: AppColors.outlineVariant,
+                  color: Theme.of(context).colorScheme.outlineVariant,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -326,12 +326,12 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       leading: Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: isSelected ? AppColors.primaryContainer : AppColors.surfaceContainerHigh,
+                          color: isSelected ? Theme.of(context).colorScheme.primaryContainer : Theme.of(context).colorScheme.surfaceContainerHigh,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Icon(
                           Icons.storefront,
-                          color: isSelected ? AppColors.onPrimaryContainer : AppColors.onSurfaceVariant,
+                          color: isSelected ? Theme.of(context).colorScheme.onPrimaryContainer : Theme.of(context).colorScheme.onSurfaceVariant,
                           size: 20,
                         ),
                       ),
@@ -339,18 +339,18 @@ class _AddProductScreenState extends State<AddProductScreen> {
                         shop.name,
                         style: TextStyle(
                           fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                          color: isSelected ? AppColors.primary : AppColors.onSurface,
+                          color: isSelected ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                       subtitle: Text(
                         shop.address,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.onSurfaceVariant,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
                       ),
                       trailing: isSelected
-                          ? const Icon(Icons.check_circle, color: AppColors.primary)
+                          ? Icon(Icons.check_circle, color: Theme.of(context).colorScheme.primary)
                           : null,
                       onTap: () {
                         setState(() {
@@ -390,9 +390,9 @@ class _AddProductScreenState extends State<AddProductScreen> {
                     width: double.infinity,
                     height: 180,
                     decoration: BoxDecoration(
-                      color: AppColors.surfaceContainerHigh,
+                      color: Theme.of(context).colorScheme.surfaceContainerHigh,
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: AppColors.outlineVariant),
+                      border: Border.all(color: Theme.of(context).colorScheme.outlineVariant),
                     ),
                     child: _imageFile != null
                         ? ClipRRect(
@@ -402,12 +402,12 @@ class _AddProductScreenState extends State<AddProductScreen> {
                               fit: BoxFit.cover,
                             ),
                           )
-                        : const Column(
+                        : Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.add_a_photo_outlined, size: 40, color: AppColors.onSurfaceVariant),
+                              Icon(Icons.add_a_photo_outlined, size: 40, color: Theme.of(context).colorScheme.onSurfaceVariant),
                               SizedBox(height: 8),
-                              Text('Добавить фото товара', style: TextStyle(color: AppColors.onSurfaceVariant)),
+                              Text('Добавить фото товара', style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant)),
                             ],
                           ),
                   ),

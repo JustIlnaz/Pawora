@@ -17,7 +17,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               'PAWORA',
               style: Theme.of(context).textTheme.displayLarge?.copyWith(
                 fontSize: 24,
-                color: AppColors.primary,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
       actions: [

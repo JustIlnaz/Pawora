@@ -80,13 +80,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Center(
                 child: Text(
                   'PAWORA',
-                  style: Theme.of(context).textTheme.displayLarge?.copyWith(fontSize: 32, color: AppColors.primary),
+                  style: Theme.of(context).textTheme.displayLarge?.copyWith(fontSize: 32, color: Theme.of(context).colorScheme.primary),
                 ),
               ),
               const SizedBox(height: AppSpacing.xl),
               Text('Создать аккаунт', style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: AppSpacing.sm),
-              Text('Зарегистрируйтесь, чтобы начать', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.onSurfaceVariant)),
+              Text('Зарегистрируйтесь, чтобы начать', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant)),
               const SizedBox(height: AppSpacing.xl),
               CustomTextField(
                 label: 'Имя и фамилия',
@@ -105,7 +105,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 prefixIcon: Icons.lock_outline,
                 obscureText: _obscurePassword,
                 suffixIcon: IconButton(
-                  icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility, color: AppColors.onSurfaceVariant),
+                  icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility, color: Theme.of(context).colorScheme.onSurfaceVariant),
                   onPressed: () {
                     setState(() {
                       _obscurePassword = !_obscurePassword;
@@ -134,10 +134,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Уже есть аккаунт?', style: TextStyle(color: AppColors.onSurfaceVariant)),
+                  Text('Уже есть аккаунт?', style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant)),
                   TextButton(
                     onPressed: () => Navigator.pushReplacementNamed(context, '/login'),
-                    child: const Text('Войти', style: TextStyle(color: AppColors.primary)),
+                    child: Text('Войти', style: TextStyle(color: Theme.of(context).colorScheme.primary)),
                   ),
                 ],
               ),
