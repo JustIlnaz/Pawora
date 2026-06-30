@@ -69,6 +69,51 @@ VALUES
 ```
 *(Внимание: Названия таблиц и полей могут отличаться в зависимости от ваших EF Core миграций. Адаптируйте скрипт под вашу схему БД).*
 
+## Архитектура бэкенда (Clean Architecture)
+
+Бэкенд-часть проекта реализована с использованием разделения на слои согласно принципам **Clean Architecture** (Чистая Архитектура). Это обеспечивает слабую связанность компонентов, независимость бизнес-логики от используемых СУБД, библиотек и фреймворков, а также высокую тестируемость.
+
+Решение состоит из 4 основных проектов:
+
+```
+Pawora.slnx
+├── src/
+│   ├── Pawora.Core (Domain Layer)
+│   ├── Pawora.Application (Application Layer)
+│   ├── Pawora.DataAccess (Infrastructure / Persistence Layer)
+│   └── Pawora.API (Presentation / Web API Layer)
+```
+
+### 1. Pawora.Core (Domain Layer)
+Слой ядра — центральная часть приложения. Он не зависит ни от одного другого слоя или внешней библиотеки (кроме базовых системных).
+* **Что содержит:**
+  * **Сущности (Entities):** Основные бизнес-модели предметной области ([User.cs](file:///D:/Pawora/backend/src/Pawora.Core/Entities/User.cs), [Product.cs](file:///D:/Pawora/backend/src/Pawora.Core/Entities/Product.cs), [Order.cs](file:///D:/Pawora/backend/src/Pawora.Core/Entities/Order.cs), [Shop.cs](file:///D:/Pawora/backend/src/Pawora.Core/Entities/Shop.cs) и др.), наследующиеся от базового класса [BaseEntity.cs](file:///D:/Pawora/backend/src/Pawora.Core/Entities/BaseEntity.cs).
+  * **Перечисления (Enums):** Системные перечисления предметной области (`OrderStatus`, `UserRole`).
+  * **Интерфейсы ядра (Interfaces):** Базовые контракты для работы с хранилищем (например, [IRepository.cs](file:///D:/Pawora/backend/src/Pawora.Core/Interfaces/IRepository.cs)), которые реализуются на уровне инфраструктуры.
+
+### 2. Pawora.Application (Application Layer)
+Слой бизнес-логики и сценариев использования (Use Cases). Он зависит только от проекта `Pawora.Core`.
+* **Что содержит:**
+  * **Интерфейсы сервисов (Interfaces):** Контракты бизнес-логики (`IAuthService`, `IProductService`, `IOrderService`).
+  * **Реализация сервисов (Services):** Классы, оркестрирующие выполнение бизнес-задач, работу с репозиториями и маппинг.
+  * **Объекты передачи данных (DTOs):** Модели данных для обмена информацией между клиентом и сервером (`LoginDto`, `RegisterDto`, `CreateOrderDto`).
+  * **Валидация (Validators):** Логика проверки DTO на корректность входных данных с использованием библиотеки FluentValidation ([Validators.cs](file:///D:/Pawora/backend/src/Pawora.Application/Validators/Validators.cs)).
+  * **Маппинг (Mappings):** Профили AutoMapper для преобразования Entity <-> DTO.
+
+### 3. Pawora.DataAccess (Infrastructure / Persistence Layer)
+Слой инфраструктуры данных. Реализует доступ к СУБД PostgreSQL. Зависит от проектов `Pawora.Application` и `Pawora.Core`.
+* **Что содержит:**
+  * **Контекст базы данных ([PaworaDbContext.cs](file:///D:/Pawora/backend/src/Pawora.DataAccess/PaworaDbContext.cs)):** Основной класс Entity Framework Core для связи сущностей с таблицами PostgreSQL, настройки связей, внешних ключей и seed-данных.
+  * **Репозитории (Repositories):** Реализация обобщенного репозитория [Repository.cs](file:///D:/Pawora/backend/src/Pawora.DataAccess/Repositories/Repository.cs) для выполнения CRUD-операций.
+  * **Миграции (Migrations):** Файлы миграций EF Core для версионирования схемы базы данных.
+
+### 4. Pawora.API (Presentation / Web API Layer)
+Слой представления — точка входа в приложение (ASP.NET Core Web API). Зависит от проектов `Pawora.Application` и `Pawora.DataAccess` (для регистрации зависимостей в DI-контейнере).
+* **Что содержит:**
+  * **Контроллеры (Controllers):** REST-эндпоинты для обработки HTTP-запросов от мобильного клиента ([ProductsController.cs](file:///D:/Pawora/backend/src/Pawora.API/Controllers/ProductsController.cs), [AuthController.cs](file:///D:/Pawora/backend/src/Pawora.API/Controllers/AuthController.cs) и др.), наследуемые от [ApiControllerBase.cs](file:///D:/Pawora/backend/src/Pawora.API/Controllers/ApiControllerBase.cs).
+  * **Промежуточное ПО (Middleware):** Компоненты перехвата и обработки исключений ([ExceptionHandlingMiddleware.cs](file:///D:/Pawora/backend/src/Pawora.API/Middleware/ExceptionHandlingMiddleware.cs)).
+  * **Конфигурация ([Program.cs](file:///D:/Pawora/backend/src/Pawora.API/Program.cs)):** Инициализация веб-приложения, настройка CORS, JWT-авторизации, Swagger, автоматического выполнения миграций БД при старте и регистрация зависимостей в DI.
+
 ## Вопросы и ответы при защите
 
 **1. Какой стек технологий использован в проекте?**
