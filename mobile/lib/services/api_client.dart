@@ -19,7 +19,7 @@ class ApiClient {
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path;
     }
-    return 'http://10.0.2.2:5000$path';
+    return 'http://10.0.2.2:5041$path';
   }
 
   void _handleLogoutAndRedirect() {
@@ -34,7 +34,7 @@ class ApiClient {
 
   ApiClient._internal() {
     dio = Dio(BaseOptions(
-      baseUrl: 'http://10.0.2.2:5000/api',
+      baseUrl: 'http://10.0.2.2:5041/api',
       connectTimeout: const Duration(seconds: 10),
       receiveTimeout: const Duration(seconds: 10),
       headers: {'Content-Type': 'application/json'},
@@ -56,7 +56,7 @@ class ApiClient {
               // Create a new Dio instance to avoid interceptor loop
               final refreshDio = Dio();
               final response = await refreshDio.post(
-                'http://10.0.2.2:5000/api/auth/refresh',
+                'http://10.0.2.2:5041/api/auth/refresh',
                 data: {'refreshToken': refreshToken},
               );
 

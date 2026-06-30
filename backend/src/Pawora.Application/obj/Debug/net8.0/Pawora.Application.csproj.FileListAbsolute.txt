@@ -13,3 +13,4 @@ D:\Pawora\backend\src\Pawora.Application\obj\Debug\net8.0\Pawora.Application.dll
 D:\Pawora\backend\src\Pawora.Application\obj\Debug\net8.0\refint\Pawora.Application.dll
 D:\Pawora\backend\src\Pawora.Application\obj\Debug\net8.0\Pawora.Application.pdb
 D:\Pawora\backend\src\Pawora.Application\obj\Debug\net8.0\ref\Pawora.Application.dll
+D:\Pawora\backend\src\Pawora.Application\obj\Debug\net8.0\Pawora.Application.sourcelink.json

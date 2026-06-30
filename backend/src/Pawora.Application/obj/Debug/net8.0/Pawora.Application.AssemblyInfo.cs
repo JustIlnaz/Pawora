@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pawora.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39dfa67653542b71de83fb3eec41e763c987ed3d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pawora.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pawora.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

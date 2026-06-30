@@ -131,3 +131,5 @@ D:\Pawora\backend\src\Pawora.API\obj\Debug\net8.0\refint\Pawora.API.dll
 D:\Pawora\backend\src\Pawora.API\obj\Debug\net8.0\Pawora.API.pdb
 D:\Pawora\backend\src\Pawora.API\obj\Debug\net8.0\Pawora.API.genruntimeconfig.cache
 D:\Pawora\backend\src\Pawora.API\obj\Debug\net8.0\ref\Pawora.API.dll
+D:\Pawora\backend\src\Pawora.API\obj\Debug\net8.0\Pawora.API.sourcelink.json
+D:\Pawora\backend\src\Pawora.API\bin\Debug\net8.0\Pawora.API.staticwebassets.runtime.json

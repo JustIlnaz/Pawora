@@ -9,3 +9,4 @@ D:\Pawora\backend\src\Pawora.Core\obj\Debug\net8.0\Pawora.Core.dll
 D:\Pawora\backend\src\Pawora.Core\obj\Debug\net8.0\refint\Pawora.Core.dll
 D:\Pawora\backend\src\Pawora.Core\obj\Debug\net8.0\Pawora.Core.pdb
 D:\Pawora\backend\src\Pawora.Core\obj\Debug\net8.0\ref\Pawora.Core.dll
+D:\Pawora\backend\src\Pawora.Core\obj\Debug\net8.0\Pawora.Core.sourcelink.json

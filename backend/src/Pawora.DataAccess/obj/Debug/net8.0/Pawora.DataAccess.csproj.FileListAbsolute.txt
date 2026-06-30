@@ -15,3 +15,4 @@ D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\refint\Pawora.DataAcces
 D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\Pawora.DataAccess.pdb
 D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\Pawora.DataAccess.genruntimeconfig.cache
 D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\ref\Pawora.DataAccess.dll
+D:\Pawora\backend\src\Pawora.DataAccess\obj\Debug\net8.0\Pawora.DataAccess.sourcelink.json
