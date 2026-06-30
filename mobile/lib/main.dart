@@ -62,7 +62,10 @@ class PaworaApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ShopProvider()),
         ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => PetProvider()),
-        ChangeNotifierProvider(create: (_) => FavoriteProvider()),
+        ChangeNotifierProxyProvider<AuthProvider, FavoriteProvider>(
+          create: (_) => FavoriteProvider(),
+          update: (_, auth, favorite) => favorite!..updateUser(auth.user?.id),
+        ),
         ChangeNotifierProvider(create: (_) => AdminProvider()),
         ChangeNotifierProvider(create: (_) => AddressProvider()),
         ChangeNotifierProxyProvider<AuthProvider, PaymentProvider>(

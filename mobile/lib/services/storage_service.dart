@@ -41,12 +41,12 @@ class StorageService {
     return null;
   }
 
-  Future<void> saveFavorites(List<String> productIds) async {
-    await _storage.write(key: 'favorite_products', value: jsonEncode(productIds));
+  Future<void> saveFavorites(String userId, List<String> productIds) async {
+    await _storage.write(key: 'favorite_products_$userId', value: jsonEncode(productIds));
   }
 
-  Future<List<String>> getFavorites() async {
-    final jsonStr = await _storage.read(key: 'favorite_products');
+  Future<List<String>> getFavorites(String userId) async {
+    final jsonStr = await _storage.read(key: 'favorite_products_$userId');
     if (jsonStr != null) {
       final decoded = jsonDecode(jsonStr);
       return List<String>.from(decoded);

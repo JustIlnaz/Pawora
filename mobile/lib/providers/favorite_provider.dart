@@ -4,15 +4,25 @@ import '../services/storage_service.dart';
 class FavoriteProvider with ChangeNotifier {
   final StorageService _storageService = StorageService();
   List<String> _favoriteIds = [];
+  String _userId = 'guest';
 
   List<String> get favoriteIds => _favoriteIds;
+
+  void updateUser(String? userId) {
+    final newId = userId ?? 'guest';
+    if (_userId != newId) {
+      _userId = newId;
+      _favoriteIds = [];
+      loadFavorites();
+    }
+  }
 
   FavoriteProvider() {
     loadFavorites();
   }
 
   Future<void> loadFavorites() async {
-    _favoriteIds = await _storageService.getFavorites();
+    _favoriteIds = await _storageService.getFavorites(_userId);
     notifyListeners();
   }
 
@@ -26,7 +36,7 @@ class FavoriteProvider with ChangeNotifier {
     } else {
       _favoriteIds.add(productId);
     }
-    await _storageService.saveFavorites(_favoriteIds);
+    await _storageService.saveFavorites(_userId, _favoriteIds);
     notifyListeners();
   }
 }
